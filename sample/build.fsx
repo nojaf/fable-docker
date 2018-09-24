@@ -3,6 +3,7 @@ nuget Fake.IO.FileSystem
 nuget Fake.DotNet.Cli
 nuget Fake.Core.Process
 nuget Fake.Core.Target
+nuget Fake.DotNet.Paket
 nuget Fake.JavaScript.Npm //"
 #load "./.fake/build.fsx/intellisense.fsx"
 
@@ -30,8 +31,7 @@ Target.create "InstallPaket" (fun _ ->
 )
 
 Target.create "Restore" (fun _ ->
-    Process.directExec (fun p -> { p with FileName = paketExe ; Arguments = "restore" })
-    |> ignore
+    Paket.restore id
 
     DotNet.restore (DotNet.Options.withWorkingDirectory "src") "App.fsproj"
 
