@@ -6,3 +6,4 @@ BuildPackages/
 packages/
 obj/
 paket-files/
+sample/public/bundle.js

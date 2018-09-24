@@ -8,13 +8,13 @@ nuget Fake.JavaScript.Npm //"
 
 open Fake.Core
 open Fake.Core.TargetOperators
-open System
 open System.IO
 open Fake.IO
 open Fake.DotNet
 open Fake.JavaScript
 
-let paketExe = Path.Combine(__SOURCE_DIRECTORY__, ".paket", "paket")
+let paketFile = if Environment.isLinux then "paket" else "paket.exe"
+let paketExe = Path.Combine(__SOURCE_DIRECTORY__, ".paket", paketFile)
 
 // Default target
 Target.create "Install" (fun _ ->
