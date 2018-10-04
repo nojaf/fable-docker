@@ -6,6 +6,10 @@ nuget Fake.Core.Target
 nuget Fake.JavaScript.Npm //"
 #load "./.fake/build.fsx/intellisense.fsx"
 
+#if !FAKE
+  #r "netstandard"
+#endif
+
 open Fake.Core
 open Fake.Core.TargetOperators
 open System
@@ -21,13 +25,13 @@ Target.create "Install" (fun _ ->
   Trace.trace "FAKE installed deps"
 )
 
-Target.create "InstallPaket" (fun _ ->
-    if not (File.exists paketExe) then
-        DotNet.exec id "tool" "install --tool-path \".paket\" Paket --version 5.182.0-alpha001 --add-source https://api.nuget.org/v3/index.json"
-        |> ignore
-    else
-        printfn "paket already installed"
-)
+// Target.create "InstallPaket" (fun _ ->
+//     if not (File.exists paketExe) then
+//         DotNet.exec id "tool" "install --tool-path \".paket\" Paket --version 5.182.0-alpha001 --add-source https://api.nuget.org/v3/index.json"
+//         |> ignore
+//     else
+//         printfn "paket already installed"
+// )
 
 Target.create "Restore" (fun _ ->
     Process.directExec (fun p -> { p with FileName = paketExe ; Arguments = "restore" })
