@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 Target=${1:-Build}
 BuildPackages="./.fake"
-FakeExe=$"BuildPackages/fake"
+FakeExe="$BuildPackages/fake"
 
 if [ ! -f $FakeExe ]; then
     dotnet tool install fake-cli --tool-path $BuildPackages
