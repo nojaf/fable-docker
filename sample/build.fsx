@@ -35,7 +35,7 @@ Target.create "Install" (fun _ ->
 // )
 
 Target.create "Restore" (fun _ ->
-    Paket.restore id
+    // Paket.restore id
 
     DotNet.restore (DotNet.Options.withWorkingDirectory "src") "App.fsproj"
 
@@ -43,7 +43,7 @@ Target.create "Restore" (fun _ ->
 )
 
 Target.create "Build" (fun _ ->
-  DotNet.exec (DotNet.Options.withWorkingDirectory "src") "fable" "webpack --port free -- -p"
+  DotNet.exec (DotNet.Options.withWorkingDirectory "src") "fable" "webpack-cli --port free -- -p"
   |> ignore
 )
 
@@ -59,7 +59,7 @@ Target.create "Watch" (fun _ ->
   |> Async.RunSynchronously
 )
 
-"InstallPaket" ==> "Restore" ==> "Build"
+"Restore" ==> "Build"
 
 "Watch"
     <== [ "Restore" ] 
