@@ -3,6 +3,7 @@ nuget Fake.IO.FileSystem
 nuget Fake.DotNet.Cli
 nuget Fake.Core.Process
 nuget Fake.Core.Target
+nuget Fake.DotNet.Paket
 nuget Fake.JavaScript.Npm //"
 #load "./.fake/build.fsx/intellisense.fsx"
 
@@ -12,13 +13,13 @@ nuget Fake.JavaScript.Npm //"
 
 open Fake.Core
 open Fake.Core.TargetOperators
-open System
 open System.IO
 open Fake.IO
 open Fake.DotNet
 open Fake.JavaScript
 
-let paketExe = Path.Combine(__SOURCE_DIRECTORY__, ".paket", "paket")
+let paketFile = if Environment.isLinux then "paket" else "paket.exe"
+let paketExe = Path.Combine(__SOURCE_DIRECTORY__, ".paket", paketFile)
 
 // Default target
 Target.create "Install" (fun _ ->
@@ -34,8 +35,7 @@ Target.create "Install" (fun _ ->
 // )
 
 Target.create "Restore" (fun _ ->
-    Process.directExec (fun p -> { p with FileName = paketExe ; Arguments = "restore" })
-    |> ignore
+    Paket.restore id
 
     DotNet.restore (DotNet.Options.withWorkingDirectory "src") "App.fsproj"
 
