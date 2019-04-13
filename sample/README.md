@@ -1,3 +1,3 @@
-# Fable 2 Docker image sample
+# Fable 2.2 Docker image sample
 
->docker run -it --rm -v "${PWD}:/app" -w "/app" -p "8080:8080"  nojaf/fable bash
+>docker run -it --rm -v "${PWD}:/app" -w "/app" -p "8080:8080"  nojaf/fable:2.2 sh

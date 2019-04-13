@@ -4,14 +4,15 @@
   "description": ">docker run -it --rm -v \"${PWD}:/app\" -w \"/app\"  nojaf/fable bash",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "paket generate-load-scripts -f netstandard2.0 -t fsx"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "fable-loader": "2.0.0",
+    "@babel/core": "7.4.3",
+    "fable-loader": "2.1.6",
+    "fable-compiler": "2.2.3",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"
