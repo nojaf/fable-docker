@@ -1,0 +1,9 @@
+node_modules/
+.fake/
+.paket/
+!.paket/Paket.Restore.targets
+BuildPackages/
+packages/
+obj/
+paket-files/
+sample/public/bundle.js
