@@ -1,6 +1,7 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine3.9
 
 RUN dotnet tool install -g Paket
+RUN dotnet tool install -g fake-cli
 
 # Workaround for https://github.com/dotnet/cli/issues/9321
 ENV PATH="/root/.dotnet/tools:${PATH}"
@@ -73,3 +74,7 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz \
   && apk del .build-deps-yarn
+
+## Install git
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
