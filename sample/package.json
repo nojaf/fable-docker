@@ -12,7 +12,7 @@
   "devDependencies": {
     "@babel/core": "7.4.3",
     "fable-loader": "2.1.6",
-    "fable-compiler": "2.2.3",
+    "fable-compiler": "2.4.2",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.7"

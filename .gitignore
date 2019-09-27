@@ -7,3 +7,5 @@ packages/
 obj/
 paket-files/
 sample/public/bundle.js
+Instructions.md
+.ionide/symbolCache.db

@@ -19,3 +19,8 @@ This version is no longer available.
 
 - Contains Fake globally
 - Installed git in Alpine, fixes #1
+
+### 2.4
+
+- .NETCore 3.0
+- Switched to Debian instead of Alpine
