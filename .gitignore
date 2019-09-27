@@ -9,3 +9,4 @@ paket-files/
 sample/public/bundle.js
 Instructions.md
 .ionide/symbolCache.db
+sample/.ionide/symbolCache.db
