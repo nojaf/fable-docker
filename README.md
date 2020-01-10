@@ -24,3 +24,8 @@ This version is no longer available.
 
 - .NETCore 3.0
 - Switched to Debian instead of Alpine
+
+### 2.5
+
+- .NETCore 3.1
+- Node.JS 12

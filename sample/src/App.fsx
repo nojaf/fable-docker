@@ -7,8 +7,8 @@
 
 open Elmish
 open Elmish.React
-open Fable.Helpers.React
-open Fable.Helpers.React.Props
+open Fable.React
+open Fable.React.Props
 
 // MODEL
 
@@ -38,6 +38,6 @@ let view (model: Model) dispatch =
 
 // App
 Program.mkSimple init update view
-|> Program.withReact "elmish-app"
+|> Program.withReactBatched "elmish-app"
 |> Program.withConsoleTrace
 |> Program.run
