@@ -29,3 +29,9 @@ This version is no longer available.
 
 - .NETCore 3.1
 - Node.JS 12
+
+### 2.6
+
+- .NET 5
+- Node.JS 14
+- No more global tools

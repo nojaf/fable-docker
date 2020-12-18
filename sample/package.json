@@ -1,26 +1,14 @@
 {
-  "name": "app",
-  "version": "1.0.0",
-  "description": ">docker run -it --rm -v \"${PWD}:/app\" -w \"/app\"  nojaf/fable bash",
-  "main": "index.js",
   "scripts": {
-    "postinstall": "dotnet paket generate-load-scripts -f netstandard2.0 -t fsx",
-    "build":"webpack -p",
-    "start":"webpack-dev-server"
+    "prestart": "dotnet fable ./src/App.fsproj",
+    "start": "snowpack dev",
+    "build": "snowpack build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@babel/core": "7.7.7",
-    "fable-loader": "2.1.8",
-    "fable-compiler": "2.4.12",
-    "webpack": "4.41.5",
-    "webpack-cli": "3.3.10",
-    "webpack-dev-server": "3.10.1"
+    "snowpack": "^2.18.5"
   },
   "dependencies": {
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "react": "17.0.0",
+    "react-dom": "17.0.0"
   }
 }

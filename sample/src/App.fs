@@ -1,4 +1,4 @@
-#load "../.paket/load/netstandard2.0/main.group.fsx"
+module App
 
 (**
  The famous Increment/Decrement ported from Elm.
@@ -18,7 +18,7 @@ type Msg =
     | Increment
     | Decrement
 
-let init(): Model = 0
+let init (): Model = 0
 
 // UPDATE
 
@@ -31,10 +31,15 @@ let update (msg: Msg) (model: Model) =
 
 let view (model: Model) dispatch =
 
-    div []
-        [ button [ OnClick(fun _ -> dispatch Increment) ] [ str "+" ]
-          div [] [ str (string model) ]
-          button [ OnClick(fun _ -> dispatch Decrement) ] [ str "-" ] ]
+    div [] [
+        button [ OnClick(fun _ -> dispatch Increment) ] [
+            str "+"
+        ]
+        div [] [ str (string model) ]
+        button [ OnClick(fun _ -> dispatch Decrement) ] [
+            str "-"
+        ]
+    ]
 
 // App
 Program.mkSimple init update view
