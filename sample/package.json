@@ -2,8 +2,7 @@
   "scripts": {
     "prestart": "dotnet fable ./src/App.fsproj",
     "start": "snowpack dev",
-    "build": "snowpack build",
-    "postinstall": "dotnet tool restore"
+    "build": "snowpack build"
   },
   "devDependencies": {
     "snowpack": "^2.18.5"

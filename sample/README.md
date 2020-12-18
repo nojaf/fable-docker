@@ -4,6 +4,8 @@
 
 Inside the container:
 
+>dotnet tool restore
+
 >npm install
 
 >npm start
